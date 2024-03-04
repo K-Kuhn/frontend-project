@@ -1,23 +1,31 @@
 import './App.css';
-import Nav from './components/Nav';
-import Hero from './components/Hero';
-import Highlights from './components/Highlights';
-import Testimonials from './components/Testimonials';
+import Home from './components/Home';
 import About from './components/About';
+import Menu from './components/Menu';
+import Reservations from './components/Reservations';
+import OrderOnline from './components/OrderOnline';
+import Login from './components/Login';
+import Header from './components/Header';
+import Nav from './components/Nav';
 import Footer from './components/Footer';
-import Reservation from './components/Reservation';
+import { ChakraProvider } from "@chakra-ui/react";
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <main>
-      <Nav/>
-      <Hero/>
-      <Highlights/>
-      <Testimonials/>
-      <About/>
-      <Reservation/>
-      <Footer/>
-    </main>
+    <ChakraProvider>
+        <Header />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/reservations" element={<Reservations />} />
+          <Route path="/orderonline" element={<OrderOnline />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        <Footer />
+    </ChakraProvider>
   );
 }
 

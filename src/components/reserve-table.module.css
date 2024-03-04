@@ -1,0 +1,412 @@
+.reservetableChild {
+    position: absolute;
+    top: 153px;
+    left: 0;
+    background-color: #495e57;
+    width: 1400px;
+    height: 183px;
+  }
+  .home {
+    position: absolute;
+    top: 17px;
+    left: 219px;
+    font-weight: 800;
+  }
+  .about,
+  .login,
+  .menu,
+  .orderOnline,
+  .reservations {
+    position: absolute;
+    top: 17px;
+    left: 310px;
+    font-weight: 800;
+  }
+  .login,
+  .menu,
+  .orderOnline,
+  .reservations {
+    left: 399px;
+  }
+  .login,
+  .orderOnline,
+  .reservations {
+    left: 491px;
+  }
+  .login,
+  .orderOnline {
+    left: 640px;
+  }
+  .login {
+    left: 786px;
+  }
+  .logo2Icon,
+  .navigationBar {
+    position: absolute;
+    height: 52px;
+  }
+  .logo2Icon {
+    top: 0;
+    left: 0;
+    width: 194px;
+    overflow: hidden;
+    object-fit: cover;
+  }
+  .navigationBar {
+    top: 53px;
+    left: 283px;
+    width: 830px;
+    font-size: var(--font-size-base);
+  }
+  .imagePlaceholderIcon {
+    position: absolute;
+    top: 0;
+    left: 534px;
+    width: 300px;
+    height: 600px;
+    object-fit: cover;
+  }
+  .generalInformation,
+  .reservations1 {
+    position: absolute;
+    left: 0;
+    font-family: var(--font-markazi-text);
+    color: var(--color-black);
+  }
+  .reservations1 {
+    top: 16px;
+    font-size: 64px;
+    font-weight: 500;
+  }
+  .generalInformation {
+    top: 80px;
+    font-size: var(--font-size-21xl);
+    display: flex;
+    align-items: center;
+    width: 407px;
+    height: 64px;
+  }
+  .formFieldChild {
+    background-color: transparent;
+    position: absolute;
+    height: 58.33%;
+    width: 100%;
+    top: 41.67%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .date,
+  .pleaseEnterDate {
+    position: absolute;
+    width: 97.05%;
+    left: 2.95%;
+  }
+  .pleaseEnterDate {
+    height: 58.33%;
+    top: 41.67%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+  }
+  .date {
+    height: 41.67%;
+    top: 0;
+    font-size: var(--font-size-xl);
+    font-weight: 800;
+    color: var(--color-black);
+    display: inline-block;
+  }
+  .calendarIcon {
+    position: absolute;
+    height: 31.25%;
+    width: 7.37%;
+    top: 55.21%;
+    right: 3.69%;
+    bottom: 13.54%;
+    left: 88.94%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  .date1,
+  .formField {
+    position: absolute;
+    top: 144px;
+    left: 0;
+    width: 407px;
+    height: 96px;
+  }
+  .date1 {
+    height: 41.67%;
+    width: 97.05%;
+    top: 0;
+    left: 2.95%;
+    font-size: var(--font-size-xl);
+    display: inline-block;
+    font-family: var(--font-inter);
+    color: var(--color-black);
+  }
+  .formDropdownItem {
+    position: absolute;
+    height: 1.04%;
+    width: 9.04%;
+    top: 78.13%;
+    right: -1.23%;
+    bottom: 20.83%;
+    left: 92.19%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .formDropdown,
+  .formDropdown1,
+  .formDropdown2,
+  .formDropdown3 {
+    position: absolute;
+    top: 264px;
+    left: 0;
+    width: 407px;
+    height: 96px;
+  }
+  .formDropdown1,
+  .formDropdown2,
+  .formDropdown3 {
+    top: 384px;
+  }
+  .formDropdown2,
+  .formDropdown3 {
+    top: 504px;
+  }
+  .formDropdown3 {
+    top: 624px;
+  }
+  .formDropdownChild5 {
+    position: absolute;
+    height: 1.04%;
+    top: 78.13%;
+    bottom: 20.83%;
+    left: 92.19%;
+    max-height: 100%;
+    width: 0;
+    object-fit: contain;
+    display: none;
+  }
+  .formDropdown4 {
+    position: absolute;
+    top: 744px;
+    left: 0;
+    width: 407px;
+    height: 96px;
+  }
+  .reservationSection {
+    position: absolute;
+    top: 200px;
+    left: 283px;
+    width: 834px;
+    height: 840px;
+    text-align: left;
+    color: var(--color-darkgray);
+  }
+  .imagePlaceholderIcon1 {
+    position: absolute;
+    top: 77px;
+    left: 283px;
+    border-radius: var(--br-5xs);
+    width: 160px;
+    height: 301px;
+    object-fit: cover;
+  }
+  .doormatNavigation,
+  .homeAboutMenuContainer {
+    position: absolute;
+    top: 97px;
+    left: 497px;
+    font-weight: 800;
+    display: inline-block;
+    width: 193px;
+    height: 60px;
+  }
+  .homeAboutMenuContainer {
+    top: 181px;
+    font-size: var(--font-size-base);
+    height: 154px;
+  }
+  .address {
+    margin: 0;
+  }
+  .addressPhoneNumberContainer {
+    top: 181px;
+    left: 710px;
+    font-size: var(--font-size-base);
+    height: 154px;
+  }
+  .addressPhoneNumberContainer,
+  .addressPhoneNumberContainer1,
+  .contact,
+  .socialMediaLinks {
+    position: absolute;
+    font-weight: 800;
+    display: inline-block;
+    width: 193px;
+  }
+  .addressPhoneNumberContainer1 {
+    top: 181px;
+    left: 923px;
+    font-size: var(--font-size-base);
+    height: 154px;
+  }
+  .contact,
+  .socialMediaLinks {
+    top: 97px;
+    left: 710px;
+    height: 60px;
+  }
+  .socialMediaLinks {
+    left: 923px;
+  }
+  .footerNavigation {
+    position: absolute;
+    top: 1642px;
+    left: 0;
+    background-color: #fbdabb;
+    width: 1400px;
+    height: 473px;
+    text-align: left;
+    font-size: var(--font-size-xl);
+    color: var(--color-black);
+    font-family: var(--font-karla);
+  }
+  .contactData,
+  .formDropdown5 {
+    width: 407px;
+    position: relative;
+  }
+  .contactData {
+    font-size: var(--font-size-21xl);
+    font-family: var(--font-markazi-text);
+    color: var(--color-black);
+    display: flex;
+    align-items: center;
+    height: 64px;
+    flex-shrink: 0;
+  }
+  .formDropdown5 {
+    height: 96px;
+  }
+  .contactSection {
+    position: absolute;
+    top: 1064px;
+    left: 283px;
+    width: 407px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px 0;
+    text-align: left;
+    color: var(--color-darkgray);
+  }
+  .buttonChild {
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-gold);
+  }
+  .button1,
+  .button2,
+  .buttonChild {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .button2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .button1 {
+    right: 0;
+    bottom: 0;
+  }
+  .button {
+    width: 612px;
+    position: relative;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-white);
+    height: 64px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .submit {
+    position: absolute;
+    top: 1528px;
+    left: 390px;
+    width: 612px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .frameChild {
+    height: 1.25%;
+    width: 9.04%;
+    top: 60%;
+    right: 1.45%;
+    bottom: 38.75%;
+    left: 89.51%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .drinkIcon,
+  .frameChild,
+  .vectorParent {
+    position: absolute;
+    overflow: hidden;
+  }
+  .drinkIcon {
+    height: 65%;
+    width: 13%;
+    top: 17.5%;
+    right: 82.75%;
+    bottom: 17.5%;
+    left: 4.25%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .vectorParent {
+    height: 12.1%;
+    width: 101.75%;
+    top: 0;
+    right: -1.75%;
+    bottom: 87.9%;
+    left: 0;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-whitesmoke);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .occasion {
+    position: absolute;
+    top: 864px;
+    left: 283px;
+    width: 400px;
+    height: 463px;
+    font-size: var(--font-size-5xl);
+    font-family: var(--font-inter);
+  }
+  .reservetable {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    height: 2115px;
+    overflow: hidden;
+    text-align: center;
+    font-size: var(--font-size-lg);
+    color: var(--color-black);
+    font-family: var(--font-karla);
+  }

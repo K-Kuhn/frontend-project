@@ -1,7 +1,7 @@
 import React from 'react'
 import { SimpleGrid, VStack, Text, Image, Heading } from '@chakra-ui/react'
 
-const About = () => {
+const OrderOnline = () => {
   return (
     <SimpleGrid
     mx={70}
@@ -23,7 +23,7 @@ const About = () => {
       >
         <Image src={require("../assets/Mario and Adrian b.jpg")} />
         <Heading as="h3" size="md" textAlign="left">
-          This is the About Page
+          This is the Order Online Page
         </Heading >
         <Text>
           Work in Progress!
@@ -33,4 +33,4 @@ const About = () => {
   )
 }
 
-export default About
+export default OrderOnline
