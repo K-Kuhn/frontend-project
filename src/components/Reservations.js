@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -16,14 +16,39 @@ import {
   useBreakpointValue
 } from "@chakra-ui/react";
 import * as Yup from 'yup';
-import useSubmit from "../hooks/useSubmit";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-time-picker/dist/TimePicker.css';
+import { useNavigate } from "react-router-dom";
+
+const seedRandom = function(seed) {
+  var m = 2**35 - 31;
+  var a = 185852;
+  var s = seed % m;
+  return function() {
+    return (s= s*a % m) / m;
+  }
+}
+
+const fetchAPI = function(date) {
+  let result= [];
+  let random = seedRandom(date.getDate());
+  for (let i = 17; i <= 23; i++) {
+    if (random() < 0.5){
+      result.push(i + ".00");
+    }
+    if (random() > 0.5) {
+      result.push(i + ".30");
+    }
+  }
+  return result;
+}
+
+const initialState = {availableTimes: []}
 
 const Reservations = () => {
-  const { isLoading, response, submit } = useSubmit();
-
+  const navigate = useNavigate();
+  const [state, setState] = useState(initialState);
   const formik = useFormik({
     initialValues: {
       date: "",
@@ -36,18 +61,11 @@ const Reservations = () => {
       email: "",
       phone: ""
     },
-    onSubmit: async (values) => {
-      try {
-        await submit("/api/submitForm", values)
-      } catch (error) {
-        console.log("Error submitting form:", error)
-      }
-    },
     validationSchema: Yup.object({
       date: Yup.string().required("Date is required"),
       time: Yup.string().required("Time is required"),
       diners: Yup.string().required("Number of Diners is required"),
-      seating: Yup.string().required("Seating option is required"),
+      seating: Yup.string().required("Place for seating is required"),
       Occasion: Yup.string().required("Occasion is required"),
       comment: Yup.string(),
       name: Yup.string().required("First Name is required"),
@@ -59,21 +77,30 @@ const Reservations = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the form is valid
-    const isValid = await formik.validateForm();
+    try {
+      // Validate the form
+      await formik.validateForm();
 
-    // If the form is valid, proceed with submission
-    if (isValid) {
-      try {
+      // Check if there are any errors
+      if (Object.keys(formik.errors).length === 0) {
+        // If no errors, submit the form
         await formik.handleSubmit(e);
         alert("Form submitted successfully!"); // Alert message
-      } catch (error) {
-        console.log("Error submitting form:", error)
+        navigate('/');
+      } else {
+        alert("Please fill in all required fields."); // Alert message for incomplete form
       }
-    } else {
-      alert("Please fill in all required fields."); // Alert message for incomplete form
+    } catch (error) {
+      console.log("Error submitting form:", error);
     }
   };
+
+  useEffect(() => {
+    if (formik.values.date) {
+      const times = fetchAPI(formik.values.date);
+      setState({ availableTimes: times });
+    }
+  }, [formik.values.date]);
 
   const padding = useBreakpointValue({
     base: "30px 0px 30px 0px",
@@ -112,7 +139,7 @@ const Reservations = () => {
             <VStack spacing={4}>
 
               <FormControl isInvalid={formik.touched.date && formik.errors.date}>
-                <FormLabel htmlFor="date">Date</FormLabel>
+                <FormLabel htmlFor="date">Date*</FormLabel>
                 <Box>
                   <DatePicker
                     id="date"
@@ -127,7 +154,7 @@ const Reservations = () => {
               </FormControl>
 
               <FormControl isInvalid={formik.touched.time && formik.errors.time}>
-                <FormLabel htmlFor="time">Time</FormLabel>
+                <FormLabel htmlFor="time">Time*</FormLabel>
                 <Select
                   border='1px solid'
                   backgroundColor="white"
@@ -136,18 +163,56 @@ const Reservations = () => {
                   value={formik.values.type}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}>
-                  <option value="17:00">17:00</option>
-                  <option value="18:00">18:00</option>
-                  <option value="19:00">19:00</option>
-                  <option value="20:00">20:00</option>
-                  <option value="21:00">21:00</option>
-                  <option value="22:00">22:00</option>
+                  {state.availableTimes.map((time, index) => (
+                    <option key={index} value={time}>{time}</option>
+                  ))}
                 </Select>
                 <FormErrorMessage>{formik.errors.time}</FormErrorMessage>
               </FormControl>
 
+              <FormControl isInvalid={formik.touched.diners && formik.errors.diners}>
+                <FormLabel htmlFor="diners">Diners*</FormLabel>
+                <Select
+                  border='1px solid'
+                  backgroundColor="white"
+                  id="diners"
+                  name="diners"
+                  value={formik.values.type}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </Select>
+                <FormErrorMessage>{formik.errors.diners}</FormErrorMessage>
+              </FormControl>
+
+              <FormControl isInvalid={formik.touched.seating && formik.errors.seating}>
+                <FormLabel htmlFor="seating">Seating*</FormLabel>
+                <Select
+                  border='1px solid'
+                  backgroundColor="white"
+                  id="seating"
+                  name="seating"
+                  value={formik.values.type}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}>
+                  <option value="indoor">indoor</option>
+                  <option value="outdoor">outdoor</option>
+
+                </Select>
+                <FormErrorMessage>{formik.errors.seating}</FormErrorMessage>
+              </FormControl>
+
               <FormControl>
-                <FormLabel htmlFor="occasion">Occasion</FormLabel>
+                <FormLabel htmlFor="occasion">Occasion*</FormLabel>
                 <Select
                   border='1px solid'
                   backgroundColor="white"
@@ -231,7 +296,7 @@ const Reservations = () => {
               <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>
             </FormControl>
           </Box>
-          <Button type="submit" backgroundColor="#f4ce14" width="full" isLoading={isLoading}>
+          <Button type="submit" backgroundColor="#f4ce14" width="full">
             Confirm Reservation
           </Button>
         </form>
